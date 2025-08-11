@@ -1,0 +1,18 @@
+[33m7f5838f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: commit (merge): Modified Explore Page and Connection Page
+[33m22407af[m HEAD@{1}: commit: Modified Explore Page and Connection Page
+[33md3935b3[m HEAD@{2}: reset: moving to HEAD~1
+[33m9ce9149[m HEAD@{3}: reset: moving to HEAD~1
+[33m4fcd137[m HEAD@{4}: commit: Modified Explore Page and Connection Page
+[33m9ce9149[m HEAD@{5}: commit: Fixed Some Errors
+[33md3935b3[m HEAD@{6}: commit: Added Explore Page
+[33m59282a9[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{7}: checkout: moving from master to main
+[33m59282a9[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{8}: checkout: moving from main to master
+[33m59282a9[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{9}: commit: Added Zoom-Metting like Functonality
+[33m4049ecf[m HEAD@{10}: commit: Updated Profile and Dashboard Page
+[33mc673604[m HEAD@{11}: commit: Added Zoom Meeting Configuration
+[33m652eecb[m HEAD@{12}: commit: `feat: Added room creation and joining features, updated routes and frontend code`
+[33m45dcc7d[m HEAD@{13}: Branch: renamed refs/heads/main to refs/heads/main
+[33m45dcc7d[m HEAD@{15}: commit: Initial commit for Phase 3 of SkillSphere
+[33m8a8b00d[m HEAD@{16}: commit: ✅ Implemented forgot password flow with OTP and redirection to reset password
+[33m6c13178[m HEAD@{17}: Branch: renamed refs/heads/master to refs/heads/main
+[33m6c13178[m HEAD@{19}: commit (initial): Initial commit: Completed Phase 1 and working on Forgot Password & Reset Password flow

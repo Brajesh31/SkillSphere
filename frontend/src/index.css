@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+.antic-didone {
+    font-family: "Antic Didone", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+.sgxo {
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Web development background overlay */
+.web-dev-icons-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800' opacity='0.15'%3E%3Cg fill='white'%3E%3Cpath d='M178 88l-40 68-40-68h-60l70 120-70 120h60l40-68 40 68h60l-70-120 70-120zM378 88h-120v240h120c66 0 120-54 120-120s-54-120-120-120zm0 190h-70v-140h70c39 0 70 31 70 70s-31 70-70 70zM590 88h-50v240h50zM650 208c0 44 36 80 80 80h20v40h-120v-40h20c44 0 80-36 80-80 0-30-17-58-42-72l-10-5-10-5-10-2-15-1-13 1c-9 1-17 3-25 8-8 4-16 10-23 18l35 35c8-9 19-15 33-15 15 0 25 10 25 25 0 14-11 25-25 25h-20v-80h-50v150h170v-80h-20c-44 0-80-36-80-80 0-26 13-51 35-67 23-16 48-18 72-10 12 4 24 12 33 22l10 14c11 18 17 39 17 61 0 66-54 120-120 120h-100v-240h100c5 0 10 0 15 1l13 2c17 5 33 14 46 26l11 14 9 17 8 40c0 4 1 9 1 14h-50c0-5 0-10-1-14l-7-26-2-5-3-4-3-4-7-7-4-3-5-3-5-2-9-2c-4-1-9-1-13-1zM720 68c15 0 30 15 30 30s-15 30-30 30-30-15-30-30 15-30 30-30z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 800px 800px;
+  background-position: center;
+  background-repeat: repeat;
+  animation: floatingIcons 60s linear infinite;
+}
+
+@keyframes floatingIcons {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 800px 800px;
+  }
+}
+
+.connections-bg {
+  position: relative;
+  background-image: linear-gradient(135deg, #1a237e 0%, #311b92 50%, #4a148c 100%);
+}

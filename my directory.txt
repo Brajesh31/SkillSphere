@@ -1,0 +1,66 @@
+c:/Users/sruja/OneDrive/Desktop/SkillSphere
+├── .gitignore
+├── my directory.txt
+├── package-lock.json
+├── package.json
+├── README.md
+├── backend
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+│   ├── controllers
+│   │   ├── authController.js
+│   │   └── profileController.js
+│   ├── middleware
+│   │   └── authMiddleware.js
+│   ├── models
+│   │   ├── Otp.js
+│   │   ├── Profile.js
+│   │   └── User.js
+│   ├── routes
+│   │   ├── authRoutes.js
+│   │   └── profileRoutes.js
+│   └── uploads
+│       └── profiles
+│           ├── profile-8ce60ed0-e318-470c-8ccb-56304faf1ab5.jpg
+│           ├── profile-558a0663-042b-40d0-b05b-c6fbc4a0f86d.jpg
+│           └── profile-db29e635-1277-481e-a730-b6257cb92978.jpg
+└── frontend
+    ├── .gitignore
+    ├── eslint.config.js
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── README.md
+    ├── vite.config.js
+    ├── public
+    │   ├── orangebg.jpg
+    │   ├── symbol.svg
+    │   └── vite.svg
+    ├── src
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── index.css
+    │   ├── main.jsx
+    │   ├── assets
+    │   │   └── react.svg
+    │   ├── components
+    │   │   ├── Navbar.jsx
+    │   │   ├── ProfileDisplay.jsx
+    │   │   ├── ProfileEditor.jsx
+    │   │   └── profile
+    │   │       └── index.js
+    │   ├── context
+    │   └── pages
+    │       ├── CreateRoom.jsx
+    │       ├── Dashboard.jsx
+    │       ├── ForgotPassword.jsx
+    │       ├── Home.jsx
+    │       ├── JoinRoom.jsx
+    │       ├── Login.jsx
+    │       ├── ProfilePage.jsx
+    │       ├── ResetPassword.jsx
+    │       ├── RoomId.jsx
+    │       └── Signup.jsx
+    └── styles
+        └── Profile.css

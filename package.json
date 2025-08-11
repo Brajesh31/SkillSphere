@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-link": "^1.0.3",
+    "react-router-dom": "^7.5.0"
+  }
+}
