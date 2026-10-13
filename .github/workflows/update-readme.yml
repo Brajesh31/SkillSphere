@@ -35,7 +35,7 @@ jobs:
           fi
 
           git config user.name "Brajesh31"
-          git config user.email "braesh31.dev@gmail.com"
+          git config user.email "brajesh31.dev@gmail.com"
 
           git add README.md
 
