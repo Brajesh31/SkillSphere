@@ -98,4 +98,4 @@ Follow these instructions to set up and run the project locally.
 git clone [https://github.com/your-username/SkillSphere.git](https://github.com/your-username/SkillSphere.git)
 cd SkillSphere
 
-Last updated: 2026-10-25 10:45 UTC
+Last updated: 2026-10-25 14:49 UTC
