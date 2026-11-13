@@ -15,7 +15,7 @@
     "axios": "^1.8.4",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
+    "dotenv": "^18.0.10",
     "emoji-picker-react": "^4.12.2",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
