@@ -22,7 +22,7 @@
     "framer-motion": "^12.7.4",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.487.0",
-    "mongoose": "^8.13.2",
+    "mongoose": "^9.12.1",
     "nodemailer": "^6.10.0",
     "peerjs": "^1.5.4",
     "react": "^19.0.0",
