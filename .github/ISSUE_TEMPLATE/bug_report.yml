@@ -1,12 +1,24 @@
 name: Bug report
-description: Report a reproducible SkillSphere issue.
+description: Report a reproducible SkillSphere defect.
 title: "[Bug]: "
 labels: ["bug"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Search existing issues first. Never include passwords, JWTs, OTPs, database URIs, or private user data.
   - type: textarea
     id: summary
     attributes:
-      label: What happened?
+      label: Summary
+      description: What failed and what user impact did it have?
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: OS, browser, Node.js version, npm version
     validations:
       required: true
   - type: dropdown
@@ -14,22 +26,53 @@ body:
     attributes:
       label: Affected area
       options:
-        - Authentication
-        - Profile
+        - Frontend UI
+        - Authentication and accounts
+        - Profiles and discovery
         - Connections
-        - Rooms or real-time chat
+        - Direct messages
+        - Rooms and Socket.IO
+        - Uploads and recordings
         - AI assistant
-        - Other
+        - Build or deployment
+        - Documentation
     validations:
       required: true
   - type: textarea
-    id: reproduce
+    id: reproduction
     attributes:
       label: Steps to reproduce
+      description: Include the exact route, action, or event sequence.
+      placeholder: |
+        1. Sign in with a test account.
+        2. Navigate to ...
+        3. Perform ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
     validations:
       required: true
   - type: textarea
     id: logs
     attributes:
-      label: Logs or screenshots
-      description: Remove tokens, secrets, and personal information.
+      label: Relevant logs
+      description: Remove secrets, tokens, email addresses, and personal data before posting.
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: validation
+    attributes:
+      label: Additional context
+      description: Screenshots, browser console output, or a minimal synthetic test case.
+    validations:
+      required: false

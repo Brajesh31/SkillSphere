@@ -1,27 +1,42 @@
-# Node dependencies
-node_modules/
-
-# Environment variables and secrets
+# Environment files and secrets
 .env
 .env.*
 !.env.example
-backend/.env
-frontend/.env
+!.env.*.example
 
-# Build output
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Frontend build output
+frontend/dist/
 dist/
-build/
 
-# Logs
-*.log
-npm-debug.log*
-
-# Local user uploads (keep demo assets out of source control)
+# Backend runtime uploads and generated files
 backend/uploads/*
 !backend/uploads/.gitkeep
+uploads/
+*.log
 
-# OS and editor files
-.DS_Store
-Thumbs.db
+# Coverage and test output
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# Local databases and dumps
+*.dump
+*.bson
+*.sqlite
+*.db
+
+# IDE and operating system files
 .idea/
 .vscode/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.bak

@@ -1,21 +1,39 @@
 name: Feature request
-description: Propose a SkillSphere improvement.
+description: Propose a user-focused SkillSphere improvement.
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
   - type: textarea
     id: problem
     attributes:
-      label: User problem
+      label: Problem or user need
+      description: Who experiences the problem and why does it matter?
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: Proposed solution
+      label: Proposed behavior
+      description: Describe the intended workflow and acceptance criteria.
     validations:
       required: true
   - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+  - type: textarea
     id: impact
     attributes:
-      label: Expected impact
+      label: Technical and security impact
+      description: Consider API, data model, permissions, uploads, realtime, privacy, and cost.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Testing approach
+      description: Explain how the behavior could be verified.
+    validations:
+      required: true

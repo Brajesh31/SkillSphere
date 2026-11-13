@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the project documentation
+    url: https://github.com/Brajesh31/SkillSphere/blob/main/README.md
+    about: Review setup, API, deployment, and known limitations before opening an issue.
+  - name: Report a security vulnerability
+    url: https://github.com/Brajesh31/SkillSphere/security/advisories/new
+    about: Report vulnerabilities privately. Do not post secrets or private user data publicly.
