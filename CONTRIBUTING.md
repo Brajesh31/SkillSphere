@@ -14,9 +14,11 @@ Thanks for helping improve SkillSphere.
 From `frontend/`, run:
 
 ```bash
-npm run lint
 npm run build
+npx eslint src/api/axiosConfig.js
 ```
+
+The full `npm run lint` command currently reports pre-existing errors in several pages. Do not suppress those errors to make CI appear green; avoid adding new lint violations and help reduce the existing backlog in focused changes.
 
 From `backend/`, run:
 
