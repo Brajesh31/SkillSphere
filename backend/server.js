@@ -9,7 +9,7 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 
-// Routes imports
+// Route imports
 import authRoutes from './routes/authRoutes.js';
 import profileRoutes from './routes/profileRoutes.js';
 import roomRoutes from './routes/roomRoutes.js';
@@ -18,24 +18,30 @@ import messageRoutes from './routes/messageRoutes.js';
 import statsRoutes from './routes/statsRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
-
-// Socket.io initialization
 import { initializeSocket } from './controllers/roomController.js';
 
-// Configure environment variables
 dotenv.config();
+
+if (process.env.NODE_ENV === 'production') {
+  const requiredSecrets = ['JWT_SECRET', 'SESSION_SECRET'];
+  const missingSecrets = requiredSecrets.filter((name) => !process.env[name]);
+  if (!process.env.MONGODB_URI) missingSecrets.push('MONGODB_URI');
+  if (missingSecrets.length > 0) {
+    throw new Error(`Missing required production configuration: ${missingSecrets.join(', ')}`);
+  }
+}
+
+if (!process.env.JWT_SECRET && process.env.NODE_ENV !== 'production') {
+  process.env.JWT_SECRET = 'development-only-jwt-secret-change-before-deploy';
+}
 
 const app = express();
 const httpServer = createServer(app);
-
-// Initialize socket.io
 initializeSocket(httpServer);
 
-// Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Middleware
 app.use(cors({
   origin: [
     'http://localhost:5173',
@@ -47,38 +53,28 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// Configure session middleware
 const sessionConfig = {
-  secret: process.env.SESSION_SECRET || 'skillsphere-secret-key',
+  secret: process.env.SESSION_SECRET || 'development-only-session-secret-change-before-deploy',
   resave: false,
-  saveUninitialized: false, // Changed to false for development
-  cookie: { 
-    secure: process.env.NODE_ENV === 'production', 
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 24 * 60 * 60 * 1000
   }
 };
 
-// Don't use MongoDB store for local development
 if (process.env.NODE_ENV === 'production') {
-  try {
-    sessionConfig.store = MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
-      collectionName: 'sessions'
-    });
-  } catch (err) {
-    console.log('Session store creation failed, using memory store');
-  }
-} else {
-  console.log('Using memory store for sessions (development mode)');
+  sessionConfig.store = MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+    collectionName: 'sessions'
+  });
 }
 
 app.use(session(sessionConfig));
 
-// Serve profile pictures from uploads folder
 app.use('/uploads/profiles', express.static(path.join(__dirname, 'uploads/profiles')));
 app.use('/uploads/messages', express.static(path.join(__dirname, 'uploads/messages')));
 
-// Ensure recordings directory exists and is served
 import fs from 'fs';
 const recordingsDir = path.join(__dirname, 'uploads/recordings');
 if (!fs.existsSync(recordingsDir)) {
@@ -86,7 +82,6 @@ if (!fs.existsSync(recordingsDir)) {
 }
 app.use('/uploads/recordings', express.static(recordingsDir));
 
-// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/rooms', roomRoutes);
@@ -96,43 +91,25 @@ app.use('/api/stats', statsRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/notifications', notificationRoutes);
 
-// Log MongoDB connection info - only log in development
-console.log('MongoDB URI:', process.env.MONGODB_URI ? 'URI is defined' : 'URI is undefined');
-
-// Database connection with error handling
 const connectDB = async () => {
   try {
-    // Connect to local MongoDB
     await mongoose.connect(process.env.MONGODB_URI, {
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
     });
-    console.log('✅ Connected to local MongoDB');
-    global.dbConnected = true;
-    
-    // Start server after successful DB connection
-    const PORT = process.env.PORT || 5000;
-    httpServer.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`💾 Database connected: ${global.dbConnected}`);
-      console.log('🎯 MongoDB is ready! You can now signup/login normally');
-    });
-    
-  } catch (err) {
-    console.error('❌ MongoDB connection failed:', err.message);
-    console.log('⚠️  Make sure MongoDB is running locally on port 27017');
-    console.log('📝 To start MongoDB: mongod --dbpath "C:\\data\\db"');
-    global.dbConnected = false;
-    
-    // Start server anyway for development
-    const PORT = process.env.PORT || 5000;
-    httpServer.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`💾 Database connected: ${global.dbConnected}`);
-      console.log('🔧 Development mode: Use test@test.com / test123 for login');
-    });
+    console.log('Connected to MongoDB');
+  } catch (error) {
+    console.error('MongoDB connection failed:', error.message);
+    if (process.env.NODE_ENV === 'production') {
+      process.exit(1);
+    }
+    console.warn('Development mode: API will start without database connectivity.');
   }
+
+  const port = process.env.PORT || 5000;
+  httpServer.listen(port, () => {
+    console.log(`SkillSphere API listening on port ${port}`);
+  });
 };
 
-// Connect to database
 connectDB();

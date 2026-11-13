@@ -1,101 +1,162 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Graduation%20Cap.png" alt="SkillSphere Logo" width="120" />
-  <h1>SkillSphere</h1>
-  <p>A Comprehensive MERN-Stack Platform for Skill Development & Mentorship</p>
+# SkillSphere
 
-  <p>
-    <a href="https://github.com/your-username/skillsphere/blob/main/LICENSE">
-      <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
-    </a>
-    <a href="https://github.com/your-username/skillsphere/issues">
-      <img src="https://img.shields.io/github/issues/your-username/skillsphere" alt="Issues">
-    </a>
-    <a href="https://github.com/your-username/skillsphere/pulls">
-      <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
-    </a>
-  </p>
-</div>
+SkillSphere is a MERN-based skill development and mentorship platform. It combines a React frontend with an Express API and MongoDB data models for accounts, profiles, connections, rooms, messages, and recordings.
 
-**SkillSphere** is a robust online platform designed to bridge the gap between students, mentors, and professionals. Built on the powerful MERN stack, it fosters skill development, networking, and collaboration through real-time communication, AI-driven insights, and secure profile management to deliver a seamless and personalized learning experience.
+<p align="center">
+  <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=20232A">
+  <img alt="Node.js" src="https://img.shields.io/badge/Node.js-Express-339933?logo=nodedotjs&logoColor=white">
+  <img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb&logoColor=white">
+  <img alt="Socket.IO" src="https://img.shields.io/badge/Socket.IO-realtime-010101?logo=socketdotio&logoColor=white">
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-green.svg">
+</p>
 
----
+## Features implemented in the codebase
 
-## Demo & Screenshots
+- Account registration with email OTP verification.
+- Login, JWT-based protected API routes, and password reset flow.
+- User profiles and profile editing.
+- Explore users and manage connection requests.
+- Room creation and joining.
+- Real-time room participant updates and chat events through Socket.IO.
+- Screen-sharing request and approval events.
+- Recording-related routes and recording storage.
+- AI assistant endpoint backed by Google's Gemini API.
 
-*(Add a live demo link and screenshots of your application here to showcase its features)*
+The exact behavior depends on the current backend and frontend implementation. This project should be treated as an active development codebase, not a production-ready service.
 
-| Dashboard | Mentor Search | Virtual Room |
-| :---: | :---: | :---: |
-| ![Dashboard Screenshot](https://via.placeholder.com/400x250.png?text=Dashboard+View) | ![Search Screenshot](https://via.placeholder.com/400x250.png?text=Mentor+Search) | ![Room Screenshot](https://via.placeholder.com/400x250.png?text=Collaboration+Room) |
+## Technology
 
----
+| Layer | Technology |
+|---|---|
+| Frontend | React 19, Vite, React Router |
+| UI | Tailwind CSS, Framer Motion, Heroicons, Lucide |
+| API | Node.js, Express 5 |
+| Database | MongoDB, Mongoose |
+| Authentication | JWT, bcryptjs, email OTP, express-session |
+| Real-time | Socket.IO |
+| AI | Google Generative AI SDK |
+| Email | Nodemailer |
+| Uploads | Multer and local upload directories |
 
-## ✨ Key Features
+## Requirements
 
-- **👤 User Authentication & Security:**
-  - Secure signup with OTP email verification powered by **Nodemailer**.
-  - Robust password hashing using `bcrypt.js`.
-  - Session management with **JSON Web Tokens (JWT)**.
-  - Secure password recovery with OTP verification.
+- Node.js 20 or later
+- npm
+- MongoDB instance, local or hosted
+- Gmail app password or compatible SMTP credentials for OTP email
+- Google Gemini API key for the AI assistant
 
-- **🛠️ Comprehensive Profile Management:**
-  - Create and edit profiles with bio, role (student/mentor), and skill sets with proficiency levels.
-  - Secure profile picture uploads with validation.
-  - View detailed profiles showcasing endorsements and professional experiences.
+## Local setup
 
-- **🤝 Connections & Mentorship:**
-  - Advanced search to discover mentors, students, and collaborators by skills, roles, or bio.
-  - Full connection management: send, accept, or reject requests.
-  - **Skill Endorsements** to recognize and validate expertise within the network.
-
-- **💬 Real-Time Communication:**
-  - Create and join password-protected virtual rooms with participant limits.
-  - Live chat and real-time participant updates powered by **Socket.IO**.
-  - (Future) Integrated video conferencing capabilities.
-
-- **📊 Personalized Dashboard:**
-  - Track key metrics: sessions completed, mentors connected, skills practiced.
-  - Real-time notifications for connection requests and platform updates.
-  - View recent activities and badges earned to gamify the learning experience.
-
-- **🧠 AI-Driven Insights:**
-  - Personalized mentorship and skill growth recommendations via **OpenAI GPT-3.5**.
-  - AI-powered matching to connect users with the most relevant mentors or collaborators.
-
-- **🎨 Advanced User Experience:**
-  - Fully responsive design for a seamless experience on all devices.
-  - Visually engaging UI with a custom cursor and smooth animations using **Framer Motion**.
-  - Secure and validated file uploads for profile assets.
-
----
-
-## 🛠️ Tech Stack
-
-| Category                | Technologies                                                                          |
-| ----------------------- | ------------------------------------------------------------------------------------- |
-| **Frontend** | `React.js`, `Tailwind CSS`, `Framer Motion`, `React Router`, `Axios`, `React Toastify`   |
-| **Backend** | `Node.js`, `Express.js`, `Mongoose`, `Multer`, `Nodemailer`                            |
-| **Database** | `MongoDB`                                                                             |
-| **Real-Time Engine** | `Socket.IO` (for Chat & Video Conferencing)                                            |
-| **AI Integration** | `OpenAI GPT-3.5`                                                                      |
-| **Authentication** | `JSON Web Tokens (JWT)`, `bcrypt.js`                                                  |
-
----
-
-## 🚀 Getting Started
-
-Follow these instructions to set up and run the project locally.
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v16.x or later)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- [MongoDB](https://www.mongodb.com/) (local instance or a cloud-based service like MongoDB Atlas)
-
-### 1. Clone the Repository
+### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/your-username/SkillSphere.git](https://github.com/your-username/SkillSphere.git)
+git clone https://github.com/Brajesh31/SkillSphere.git
 cd SkillSphere
+```
 
-Last updated: 2026-11-13 17:29 UTC
+### 2. Configure the backend
+
+```bash
+cd backend
+npm ci
+cp .env.example .env
+```
+
+Set the values in `backend/.env`:
+
+| Variable | Purpose |
+|---|---|
+| `PORT` | API port, defaults to `5000` |
+| `MONGODB_URI` | MongoDB connection string |
+| `JWT_SECRET` | Secret used to sign authentication tokens |
+| `SESSION_SECRET` | Express session signing secret |
+| `EMAIL_USER` | SMTP/Gmail account used to send OTP messages |
+| `EMAIL_PASS` | SMTP/Gmail app password |
+| `GEMINI_API_KEY` | Server-side Gemini API key |
+
+Start the API:
+
+```bash
+npm run dev
+```
+
+### 3. Configure the frontend
+
+Open a second terminal:
+
+```bash
+cd frontend
+npm ci
+cp .env.example .env
+npm run dev
+```
+
+The Vite development server normally runs at `http://localhost:5173`. The frontend API client defaults to `http://localhost:5000`; set `VITE_API_BASE_URL` if your local API uses another address.
+
+### 4. Open the application
+
+Visit the local URL printed by Vite. Keep the backend, MongoDB, and frontend running while using the application.
+
+## Repository structure
+
+```text
+backend/
+├── controllers/     # Authentication, profile, room, AI, and messaging logic
+├── middleware/      # Authentication middleware
+├── models/          # Mongoose models
+├── routes/          # Express API routes
+├── uploads/         # Local profile, message, and recording uploads
+└── server.js        # Express and Socket.IO server
+frontend/
+├── src/
+│   ├── api/         # API client
+│   ├── components/  # Shared UI components
+│   ├── context/     # Room context
+│   └── pages/       # Application pages
+└── package.json
+```
+
+## High-level architecture
+
+```mermaid
+flowchart TD
+    U[Browser] --> FE[React + Vite frontend]
+    FE -->|REST / JSON| API[Express API]
+    FE <-->|Socket.IO| RT[Socket.IO server]
+    API --> DB[(MongoDB)]
+    API --> MAIL[SMTP email provider]
+    API --> AI[Gemini API]
+    API --> FS[Local uploads directory]
+```
+
+## Useful scripts
+
+| Directory | Command | Purpose |
+|---|---|---|
+| `backend` | `npm run dev` | Start API with nodemon |
+| `backend` | `npm start` | Start API |
+| `frontend` | `npm run dev` | Start Vite |
+| `frontend` | `npm run lint` | Run ESLint |
+| `frontend` | `npm run build` | Build frontend |
+| `frontend` | `npm run preview` | Preview production build |
+
+## Deployment considerations
+
+Before deploying, configure production MongoDB, strong unique JWT/session secrets, SMTP credentials, Gemini key, frontend API URL, and allowed CORS origins. The current CORS and Socket.IO origin settings include local development addresses and must be reviewed for the deployed domain.
+
+Room participant state is held in memory by the current Socket.IO server. Multiple server instances will require a shared Socket.IO adapter or another shared coordination layer. Local uploads should be moved to durable object storage for production.
+
+Do not commit real user uploads. Review existing tracked files under `backend/uploads/` before publishing or distributing this repository.
+
+## Security
+
+A Gemini API key previously embedded in backend source has been removed. Rotate that key in Google AI Studio. Removing a secret from the latest commit does not remove it from Git history. Read [SECURITY.md](SECURITY.md) before deployment.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup and pull request expectations.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

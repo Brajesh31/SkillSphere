@@ -1,8 +1,12 @@
-# Node modules
+# Node dependencies
 node_modules/
 
-# Environment variables
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
 backend/.env
+frontend/.env
 
 # Build output
 dist/
@@ -10,8 +14,14 @@ build/
 
 # Logs
 *.log
+npm-debug.log*
 
-# OS files
+# Local user uploads (keep demo assets out of source control)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# OS and editor files
 .DS_Store
 Thumbs.db
-.env
+.idea/
+.vscode/
