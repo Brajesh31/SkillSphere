@@ -149,6 +149,10 @@ Room participant state is held in memory by the current Socket.IO server. Multip
 
 Do not commit real user uploads. Review existing tracked files under `backend/uploads/` before publishing or distributing this repository.
 
+## Quality status
+
+The frontend production build and backend JavaScript syntax are checked by GitHub Actions. The full frontend ESLint command currently reports existing lint debt in several pages, including unused variables and an undefined `stopScreenSharing` reference in `RoomId.jsx`. This is not hidden or treated as a passing lint run; the workflow currently lints the updated API client and builds the app while that broader cleanup remains outstanding.
+
 ## Security
 
 A Gemini API key previously embedded in backend source has been removed. Rotate that key in Google AI Studio. Removing a secret from the latest commit does not remove it from Git history. Read [SECURITY.md](SECURITY.md) before deployment.
